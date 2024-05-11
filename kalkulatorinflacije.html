@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-image: url("povisica.jpg");
+            font-family: sans-serif;
+            color: rgb(0, 0, 0);
+        }
+        h1{
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        h2{
+            margin-bottom: 15px;
+        }
+        h3{
+            margin-bottom: 15px;
+        }
+        .background{
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 50px;
+            width: 100%;
+            margin: 50px;
+        }
+        .container{
+            max-width: 800px;
+            margin: auto;
+            border: 2px solid brown;
+            border-radius: 30px;
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+        }
+        .container input{
+            max-width: 80px;
+            height: 40px;
+            font-size: 18px;
+            text-align: center;
+        }
+        .container button{
+            padding: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: orangered;
+            cursor: pointer;
+            border-radius: 10px;
+            align-items: left;
+        }
+            .new-value{
+                margin-top: 20px;
+                font-size: 20px;
+                align-items: left;
+                color: rgb(14, 236, 218);
+            }
+        
+    </style>
+    
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <ul>
+                <li><a href="pocetna1.html">Pocetna</a></li>
+                <li><a href="kalkulatorinflacije.html">kalkulatorinflacije </a></li>
+                <li><a href="o-nama1.html">O Nama</a></li>
+                <li><a href="alert.html">Alert</a></li>
+            </ul>
+        </nav> 
+        <div class="background">
+            <h1>kalkulator inflacije</h1>
+            <div class="container">
+                <h3>Stopa inflacije:<input type="number"min="0.1" id="inflationRate"> % </h3> <br>
+                <h3>Izracunaj koliko ce <input type="number"min="1" id="money">€ da vredi za 
+                    <input type="number" min="1" id="years">godina</h3>
+                    <button onclick="inflationCalculator()">Izracunaj</button>
+            </div>
+        </div>
+        <script>
+            function inflationCalculator(){
+             inflationRate= parseFloat("inflationRate.value");
+             money=parsefloat(money.value);
+             let inflationRate = document.querySelector("#inflationRate");
+             let money=document.querySelector("#money")
+             let years=document.querySelector("#years").value;
+             years=parseFloat(years);
+             let worth=money+(money*(inflationRate/100));
+             //formula za izracunavanje inflacije.
+             for(let i=1;i<years;i++){
+                 worth+=worth*(inflationRate/100);
+             }
+             let newElement= document.createElement("div");
+             newElement.className="new-value";
+             newElement.innerText="Danasnjih  ${money}€  vredi isto kao ${worth}€ za ${years} godina.";
+             document.querySelector(".container").appendChild(newElement);
+            }
+            
+         </script>
+</body>

@@ -1,0 +1,37 @@
+* {
+    /* Inicijalno resetovanje */
+    margin: 0;
+    padding: 0;
+}
+.header,  header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #21eb0f;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    height: 40px;
+    text-align: center;
+    display: inline-block;
+}
+
+nav ul {
+    list-style: none;
+    padding: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+.naslov{
+    margin-top: 60px;
+    text-align: center;
+}
